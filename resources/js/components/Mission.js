@@ -2,11 +2,16 @@ import React, {Component} from 'react';
 
 export default class Mission extends Component {
     render() {
+
+        // creates variable `name` with the value from this.props.mission.name
+
+        const {id, name, finished, tasks} = this.props.mission;
+
         return (
             <div className="card mb-4" >
 
                 <div className="card-body">
-                    <h2 className="card-title" style={{textDecoration: 'line-through'}}>Mission In Progress</h2>
+                    <h2 className="card-title" style={{textDecoration: 'line-through'}}>{name}</h2>
                     <div>
                         <ul>
                             <li className="mb-4">

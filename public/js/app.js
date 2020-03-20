@@ -65710,7 +65710,10 @@ var App = /*#__PURE__*/function (_Component) {
       //     )
       // })
       this.state.missions !== null && this.state.missions.length > 0 ? this.state.missions.map(function (mission, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Mission__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Mission__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: mission.id,
+          mission: mission
+        });
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You don't have any missions :/ "));
     }
   }]);
@@ -65766,6 +65769,12 @@ var Mission = /*#__PURE__*/function (_Component) {
   _createClass(Mission, [{
     key: "render",
     value: function render() {
+      // creates variable `name` with the value from this.props.mission.name
+      var _this$props$mission = this.props.mission,
+          id = _this$props$mission.id,
+          name = _this$props$mission.name,
+          finished = _this$props$mission.finished,
+          tasks = _this$props$mission.tasks;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -65775,7 +65784,7 @@ var Mission = /*#__PURE__*/function (_Component) {
         style: {
           textDecoration: 'line-through'
         }
-      }, "Mission In Progress"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-row"

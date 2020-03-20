@@ -45,7 +45,10 @@ class App extends Component {
 
                     this.state.missions !== null && this.state.missions.length > 0 ?
                         this.state.missions.map((mission, i) => (
-                            <Mission/>
+                            <Mission
+                                key={mission.id}
+                                mission={mission}
+                            />
                         )) : (
                             <p>You don't have any missions :/ </p>
                         )
