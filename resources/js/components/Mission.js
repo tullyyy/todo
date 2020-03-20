@@ -4,6 +4,7 @@ export default class Mission extends Component {
     render() {
         return (
             <div className="card mb-4" >
+
                 <div className="card-body">
                     <h2 className="card-title" style={{textDecoration: 'line-through'}}>Mission In Progress</h2>
                     <div>

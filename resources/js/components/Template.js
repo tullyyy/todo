@@ -74,7 +74,6 @@ export default class Template extends Component {
                     </div>
                 </div>
 
-
                 <div className="card mb-4" >
                     <div className="card-body">
                         <h2 className="card-title" style={{textDecoration: 'line-through'}}>Mission to be finished</h2>
