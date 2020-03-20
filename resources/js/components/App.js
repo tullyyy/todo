@@ -32,7 +32,15 @@ class App extends Component {
         return (
             <div className="container">
                 <h1>To Do Missions</h1>
-                <MissionCreate/>
+                <MissionCreate
+                    handleCreated={(mission) => {
+
+                        const tmpMissions = this.state.missions.concat(mission);
+                        this.setState({
+                            missions: tmpMissions
+                        });
+                    }}
+                />
 
                 {
                     // 3) use map() function so you will render as many <Mission/> components as there are in DB

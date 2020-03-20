@@ -47929,10 +47929,20 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       // return (<Template/>);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "To Do Missions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MissionCreate__WEBPACK_IMPORTED_MODULE_2__["default"], null), // 3) use map() function so you will render as many <Mission/> components as there are in DB
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "To Do Missions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MissionCreate__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        handleCreated: function handleCreated(mission) {
+          var tmpMissions = _this3.state.missions.concat(mission);
+
+          _this3.setState({
+            missions: tmpMissions
+          });
+        }
+      }), // 3) use map() function so you will render as many <Mission/> components as there are in DB
       // this.state.missions.map((mission, i) => {
       //     return (
       //         <Mission/>
@@ -48114,7 +48124,8 @@ var MissionCreate = /*#__PURE__*/function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MissionCreate).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "handleFormSubmit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // 3) send data to API
+
       fetch('/api/missions', {
         method: 'POST',
         headers: {
@@ -48124,6 +48135,10 @@ var MissionCreate = /*#__PURE__*/function (_Component) {
         body: JSON.stringify({
           name: _this.state.name
         })
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.props.handleCreated(data);
       });
       console.log('test');
     });
@@ -48133,8 +48148,6 @@ var MissionCreate = /*#__PURE__*/function (_Component) {
     };
     return _this;
   } // 2) handle submit of the form
-  // 3) send data to API
-  // !!! DONT FORGET ABOUT CSRF !!!
 
 
   _createClass(MissionCreate, [{

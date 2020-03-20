@@ -9,15 +9,11 @@ export default class MissionCreate extends Component {
         }
     }
 
-
     // 2) handle submit of the form
-    // 3) send data to API
-
-    // !!! DONT FORGET ABOUT CSRF !!!
-
     handleFormSubmit = (e) => {
         e.preventDefault();
 
+        // 3) send data to API
         fetch('/api/missions', {
             method: 'POST',
             headers: {
@@ -27,7 +23,12 @@ export default class MissionCreate extends Component {
             body: JSON.stringify({
                 name: this.state.name
             })
-        });
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                this.props.handleCreated(data);
+            })
 
         console.log('test');
     };
