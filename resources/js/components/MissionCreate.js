@@ -26,7 +26,6 @@ export default class MissionCreate extends Component {
         })
             .then(response => response.json())
             .then(data => {
-
                 this.props.handleCreated(data);
             })
 
