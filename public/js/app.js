@@ -65782,7 +65782,7 @@ var Mission = /*#__PURE__*/function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "card-title",
         style: {
-          textDecoration: 'line-through'
+          textDecoration: finished ? 'line-through' : 'none'
         }
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "mb-4"
