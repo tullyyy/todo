@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/missions', 'MissionController@index');
+
 Route::post('/missions', 'MissionController@store');
 Route::post('/missions/{mission}', 'MissionController@update');
 Route::post('/missions/{mission}/finish', 'MissionController@finish');
