@@ -48115,6 +48115,17 @@ var MissionCreate = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleFormSubmit", function (e) {
       e.preventDefault();
+      fetch('/api/missions', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+          name: _this.state.name
+        })
+      });
+      console.log('test');
     });
 
     _this.state = {
@@ -48135,10 +48146,10 @@ var MissionCreate = /*#__PURE__*/function (_Component) {
         className: "card mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleFormSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control mr-2",

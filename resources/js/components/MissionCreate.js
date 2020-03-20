@@ -17,15 +17,30 @@ export default class MissionCreate extends Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
+
+        fetch('/api/missions', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                name: this.state.name
+            })
+        });
+
+        console.log('test');
     };
 
     render() {
         return (
             <div className="card mb-4" >
                 <div className="card-body">
-                    <div className="d-flex">
-                        {/* 1) turn the input and the button into the actual form */}
-                        <form onSubmit={this.handleFormSubmit}>
+
+                    {/* 1) turn the input and the button into the actual form */}
+                    <form onSubmit={this.handleFormSubmit}>
+                        <div className="d-flex">
+
                             {/* 0) connect the input with the value in state using value={} and onChange listener */}
                             <input
                                 type="text"
@@ -37,8 +52,8 @@ export default class MissionCreate extends Component {
                                 }}
                             />
                             <button className="btn btn-success">Create</button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         )
